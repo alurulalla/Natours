@@ -9,6 +9,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 
@@ -28,6 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // GLOBAL Middlewares
 // app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors()); // Access-Control-Allow-Origin
 app.use(express.static(path.join(__dirname, 'public')));
 // SET Security HTTP headers
 // app.use(helmet());
