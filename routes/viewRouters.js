@@ -14,7 +14,7 @@ const { createBookingCheckout } = require('../controllers/bookingController');
 
 const router = express.Router();
 
-router.get('/', createBookingCheckout, isLoggedIn, getOverview);
+router.get('/', isLoggedIn, getOverview); // ADD createBookingCheckout middleware if NOT using STRIPE webhooks
 router.get('/tour/:slug', isLoggedIn, getTour);
 router.get('/login', isLoggedIn, getLoginForm);
 router.get('/me', protect, getUserAccount);
