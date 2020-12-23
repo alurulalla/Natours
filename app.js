@@ -30,6 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 // GLOBAL Middlewares
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors()); // Access-Control-Allow-Origin
+app.options('*', cors());
 app.use(express.static(path.join(__dirname, 'public')));
 // SET Security HTTP headers
 // app.use(helmet());
