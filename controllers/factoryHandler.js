@@ -6,7 +6,6 @@ exports.deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const doc = await Model.findByIdAndDelete(id);
-    console.log(doc);
 
     if (!doc) {
       return next(new AppError('No Data Found with that ID', 404));

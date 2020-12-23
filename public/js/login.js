@@ -5,7 +5,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:4000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         email,
         password,
@@ -25,9 +25,8 @@ export const login = async (email, password) => {
 
 export const logout = async () => {
   try {
-    const res = await axios.get('http://localhost:4000/api/v1/users/logout');
+    const res = await axios.get('/api/v1/users/logout');
     showAlert('success', 'Successfully Loggedout');
-    console.log(res.data);
     if (res.data.status === 'success') location.assign('/');
   } catch (err) {
     showAlert('error', 'Unable to logout.');
